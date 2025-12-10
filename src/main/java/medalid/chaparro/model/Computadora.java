@@ -14,9 +14,12 @@ public class Computadora {
     private Date fechaRegistro;
     private String estado;
 
+<<<<<<< HEAD
     // 🔥 Nuevo campo obligatorio para tu CheckBox
     private String garantia;
 
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
     public Computadora() {} // Constructor vacío
 
     // Getters y Setters
@@ -49,8 +52,11 @@ public class Computadora {
 
     public String getEstado() { return estado; }
     public void setEstado(String estado) { this.estado = estado; }
+<<<<<<< HEAD
 
     // 🔥 Getter y Setter nuevos
     public String getGarantia() { return garantia; }
     public void setGarantia(String garantia) { this.garantia = garantia; }
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
 }

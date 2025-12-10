@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Compiled class files
 *.class
 
@@ -46,3 +47,9 @@ build/
 # OS files
 .DS_Store
 Thumbs.db
+=======
+target/
+.idea/
+*.iml
+*.log
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96

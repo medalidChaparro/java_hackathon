@@ -11,26 +11,38 @@ import java.util.List;
 
 public class ComputadoraView extends JFrame {
 
+<<<<<<< HEAD
     private JTextField txtMarca, txtModelo, txtSO, txtRAM, txtAlmacenamiento, txtFechaMant, txtFechaReg;
+=======
+    private JTextField txtTipo, txtMarca, txtModelo, txtSO, txtRAM, txtAlmacenamiento, txtFechaMant, txtFechaReg;
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
     private JButton btnRegistrar, btnActualizar, btnEliminar, btnRefrescar;
     private JTable table;
     private DefaultTableModel model;
 
+<<<<<<< HEAD
     // NUEVOS COMPONENTES OBLIGATORIOS
     private JComboBox<String> cboTipo;
     private JRadioButton rbActivo, rbInactivo;
     private ButtonGroup grupoEstado;
     private JCheckBox chkGarantia;
 
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
     private ComputadoraController controller = new ComputadoraController();
 
     public ComputadoraView() {
         setTitle("Inventario de Computadoras - Hackathon 251-S2");
+<<<<<<< HEAD
         setSize(1000, 600);
+=======
+        setSize(1000, 500);
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         // Panel Formulario
+<<<<<<< HEAD
         JPanel panelForm = new JPanel(new GridLayout(13, 2, 5, 5));
         panelForm.setBorder(BorderFactory.createTitledBorder("Formulario de Computadora"));
 
@@ -39,6 +51,12 @@ public class ComputadoraView extends JFrame {
         cboTipo = new JComboBox<>(new String[]{"Laptop", "Desktop", "All-in-One", "Servidor"});
         panelForm.add(cboTipo);
 
+=======
+        JPanel panelForm = new JPanel(new GridLayout(10, 2, 5, 5));
+        panelForm.setBorder(BorderFactory.createTitledBorder("Formulario de Computadora"));
+
+        txtTipo = new JTextField();
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         txtMarca = new JTextField();
         txtModelo = new JTextField();
         txtSO = new JTextField();
@@ -47,6 +65,10 @@ public class ComputadoraView extends JFrame {
         txtFechaMant = new JTextField();
         txtFechaReg = new JTextField();
 
+<<<<<<< HEAD
+=======
+        panelForm.add(new JLabel("Tipo de Equipo:")); panelForm.add(txtTipo);
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         panelForm.add(new JLabel("Marca:")); panelForm.add(txtMarca);
         panelForm.add(new JLabel("Modelo:")); panelForm.add(txtModelo);
         panelForm.add(new JLabel("Sistema Operativo:")); panelForm.add(txtSO);
@@ -55,6 +77,7 @@ public class ComputadoraView extends JFrame {
         panelForm.add(new JLabel("Fecha Mantenimiento (YYYY-MM-DD):")); panelForm.add(txtFechaMant);
         panelForm.add(new JLabel("Fecha Registro (YYYY-MM-DD):")); panelForm.add(txtFechaReg);
 
+<<<<<<< HEAD
         // --- NUEVO: RadioButtons para Estado ---
         panelForm.add(new JLabel("Estado:"));
         JPanel panelEstado = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -75,6 +98,8 @@ public class ComputadoraView extends JFrame {
         panelForm.add(chkGarantia);
 
         // Botones
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         btnRegistrar = new JButton("Registrar");
         btnActualizar = new JButton("Actualizar");
         btnEliminar = new JButton("Eliminar");
@@ -88,10 +113,14 @@ public class ComputadoraView extends JFrame {
         // Tabla
         model = new DefaultTableModel();
         table = new JTable(model);
+<<<<<<< HEAD
         model.setColumnIdentifiers(new Object[]{
                 "ID", "Tipo", "Marca", "Modelo", "SO", "RAM",
                 "Almacenamiento", "Fecha Mant", "Fecha Reg", "Estado", "Garantía"
         });
+=======
+        model.setColumnIdentifiers(new Object[]{"ID", "Tipo", "Marca", "Modelo", "SO", "RAM", "Almacenamiento", "Fecha Mant", "Fecha Reg", "Estado"});
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         JScrollPane scroll = new JScrollPane(table);
 
         add(panelForm, BorderLayout.NORTH);
@@ -109,7 +138,12 @@ public class ComputadoraView extends JFrame {
     private void registrar() {
         try {
             // Validar campos vacíos
+<<<<<<< HEAD
             if (txtMarca.getText().trim().isEmpty() ||
+=======
+            if (txtTipo.getText().trim().isEmpty() ||
+                    txtMarca.getText().trim().isEmpty() ||
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
                     txtModelo.getText().trim().isEmpty() ||
                     txtSO.getText().trim().isEmpty() ||
                     txtRAM.getText().trim().isEmpty() ||
@@ -125,7 +159,11 @@ public class ComputadoraView extends JFrame {
             }
 
             Computadora c = new Computadora();
+<<<<<<< HEAD
             c.setTipoEquipo(cboTipo.getSelectedItem().toString());
+=======
+            c.setTipoEquipo(txtTipo.getText().trim());
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
             c.setMarca(txtMarca.getText().trim());
             c.setModelo(txtModelo.getText().trim());
             c.setSistemaOperativo(txtSO.getText().trim());
@@ -157,16 +195,26 @@ public class ComputadoraView extends JFrame {
                 return;
             }
 
+<<<<<<< HEAD
             // Nuevo: estado y garantía
             c.setEstado(rbActivo.isSelected() ? "activo" : "inactivo");
             c.setGarantia(chkGarantia.isSelected() ? "sí" : "no");
 
+=======
+            c.setEstado("activo");
+
+            // Intentar registrar
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
             if (controller.registrar(c)) {
                 JOptionPane.showMessageDialog(this, "✅ Computadora registrada correctamente");
                 limpiarFormulario();
                 cargarTabla();
             } else {
+<<<<<<< HEAD
                 JOptionPane.showMessageDialog(this, "❌ Error al registrar");
+=======
+                JOptionPane.showMessageDialog(this, "❌ Error al registrar. Revisa la conexión con la base de datos.");
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
             }
 
         } catch (Exception ex) {
@@ -184,18 +232,34 @@ public class ComputadoraView extends JFrame {
 
             Computadora c = new Computadora();
             c.setId((int) model.getValueAt(fila, 0));
+<<<<<<< HEAD
             c.setTipoEquipo(cboTipo.getSelectedItem().toString());
+=======
+            c.setTipoEquipo(txtTipo.getText().trim());
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
             c.setMarca(txtMarca.getText().trim());
             c.setModelo(txtModelo.getText().trim());
             c.setSistemaOperativo(txtSO.getText().trim());
 
             // Validar números
+<<<<<<< HEAD
             int ram, almacenamiento;
+=======
+            int ram;
+            int almacenamiento;
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
             try {
                 ram = Integer.parseInt(txtRAM.getText().trim());
                 almacenamiento = Integer.parseInt(txtAlmacenamiento.getText().trim());
             } catch (NumberFormatException e) {
+<<<<<<< HEAD
                 JOptionPane.showMessageDialog(this, "Numeros inválidos en RAM o almacenamiento");
+=======
+                JOptionPane.showMessageDialog(this,
+                        "Por favor ingresa valores numéricos válidos en RAM y Almacenamiento",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
                 return;
             }
             c.setRam(ram);
@@ -205,6 +269,7 @@ public class ComputadoraView extends JFrame {
             try {
                 c.setFechaMantenimiento(Date.valueOf(txtFechaMant.getText().trim()));
                 c.setFechaRegistro(Date.valueOf(txtFechaReg.getText().trim()));
+<<<<<<< HEAD
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error en formato de fecha");
                 return;
@@ -216,12 +281,29 @@ public class ComputadoraView extends JFrame {
 
             if (controller.actualizar(c)) {
                 JOptionPane.showMessageDialog(this, "✅ Computadora actualizada");
+=======
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(this,
+                        "Por favor ingresa fechas en formato YYYY-MM-DD",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            c.setEstado("activo");
+
+            if (controller.actualizar(c)) {
+                JOptionPane.showMessageDialog(this, "✅ Computadora actualizada correctamente");
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
                 limpiarFormulario();
                 cargarTabla();
             } else {
                 JOptionPane.showMessageDialog(this, "❌ Error al actualizar");
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "❌ Error inesperado: " + ex.getMessage());
         }
@@ -237,12 +319,19 @@ public class ComputadoraView extends JFrame {
 
             int id = (int) model.getValueAt(fila, 0);
             if (controller.eliminar(id)) {
+<<<<<<< HEAD
                 JOptionPane.showMessageDialog(this, "✅ Eliminado lógicamente");
+=======
+                JOptionPane.showMessageDialog(this, "✅ Computadora eliminada (lógico)");
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
                 cargarTabla();
             } else {
                 JOptionPane.showMessageDialog(this, "❌ Error al eliminar");
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "❌ Error: " + ex.getMessage());
         }
@@ -253,16 +342,25 @@ public class ComputadoraView extends JFrame {
         List<Computadora> lista = controller.listar();
         for (Computadora c : lista) {
             model.addRow(new Object[]{
+<<<<<<< HEAD
                     c.getId(), c.getTipoEquipo(), c.getMarca(), c.getModelo(),
                     c.getSistemaOperativo(), c.getRam(), c.getAlmacenamiento(),
                     c.getFechaMantenimiento(), c.getFechaRegistro(),
                     c.getEstado(), c.getGarantia()
+=======
+                    c.getId(), c.getTipoEquipo(), c.getMarca(), c.getModelo(), c.getSistemaOperativo(),
+                    c.getRam(), c.getAlmacenamiento(), c.getFechaMantenimiento(), c.getFechaRegistro(), c.getEstado()
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
             });
         }
     }
 
     private void limpiarFormulario() {
+<<<<<<< HEAD
         cboTipo.setSelectedIndex(0);
+=======
+        txtTipo.setText("");
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
         txtMarca.setText("");
         txtModelo.setText("");
         txtSO.setText("");
@@ -270,8 +368,11 @@ public class ComputadoraView extends JFrame {
         txtAlmacenamiento.setText("");
         txtFechaMant.setText("");
         txtFechaReg.setText("");
+<<<<<<< HEAD
         rbActivo.setSelected(true);
         chkGarantia.setSelected(false);
+=======
+>>>>>>> 47bfbfd1a28da7c6a1658f9867da8742a7763a96
     }
 
     public static void main(String[] args) {
